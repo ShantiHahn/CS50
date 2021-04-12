@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class= "container">
+        <div class="row">
+        <div class= "col-12"><h2>Active Listing in your watchlist</h2> </div>
+        <div class= "col-6">
+            <ul>
+                <h3> Listings: </h3>
+
+                {% for i in watchlist %}
+                    <li>{{i.title}} {{i.id}} {{ i.id }} <a href="{% url 'listing' i.id %} "> {{i.description}} </a> </li>
+                    <form action="{% url 'watchlist' %}" method="post">
+                    {% csrf_token %}
+                    {{closeform}}
+                    <input type="submit" value="Remove from your watchlist!">
+                    </form>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class= "col-6">
+            <ul>
+            <h3> Bids : </h3>
+
+                {% for b in bids %}
+                    {% for i in b %}
+                    <li>{{i}} <a href="{% url 'listing' i.auction.id %} "> top this bid </a> </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+{% endblock %}

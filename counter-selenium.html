@@ -1,0 +1,31 @@
+<! DOCTYPE html>
+<html lang=en">
+	<head>
+		<title> Counter </title>
+		<script> 
+		
+			document.addEventListener('DOMContentLoaded', () => {
+			
+				//initialize variable to 0
+				let counter = 0;
+				
+				//if increase clicked
+				document.querySelector('#increase').onclick = () => {
+					counter ++;
+					document.querySelector('h1').innerHTML = counter;
+				}
+				//if decrease is clicked
+				
+				document.querySelector('#decrease').onclick = () => {
+					counter --;
+					document.querySelector('h1').innerHTML = counter;
+				}
+			})
+		</script>
+	
+	</head>
+	<body>
+		<h1> 0</h1>
+		<button id="increase">+</button>
+		<button id="decrease">-</button>
+	</body>

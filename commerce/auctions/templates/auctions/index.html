@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}   
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+        <h2>Active Listings</h2>
+        <ul>
+            <h3> Listings: </h3>
+                {% for title, value in max_bids.items %}
+                    <li> {{ title.title }}<a href="{% url 'listing' title.id %} " > Go to listing</a>  current price : {{ value }}</li>
+
+                {% endfor %}
+        </ul>
+        </div>
+        <div class="col-4">
+            <h3> Bids : </h3>
+            <ul>
+            {% for b in bids %}
+            <li>{{b}}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="col-4">
+            <h3> Categories </h3>
+            <ul>
+            {% for c in categories %}
+
+            <li>  <a href="{% url 'category_search' c %} "> {{c}} </a> </li>
+            {% endfor%}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

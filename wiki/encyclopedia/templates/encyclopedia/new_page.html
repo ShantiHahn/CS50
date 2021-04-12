@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   New entry : 
+{% endblock %}
+
+{% block body %}
+    <h1>New entry for the Encyclopedia</h1>
+
+    <h2> Enter the entry's content here:</h2>
+    {% if error_msg is not NONE  %}
+    {{ error_msg|safe }}
+    <a href="{% url 'get_page' title %}"> {{title}} </a>
+    {% endif %}
+
+    <form action="{% url 'new_page' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <style > 
+        	body {
+        	margin: 0px;
+        	}
+        	form {
+        	margin : 30em;
+        	text-align:center
+        	}
+        	.navbar {
+        	padding: 5px;
+        	height: 25px;
+        	text-align: right;
+        	background: #f1f1f1;
+        	width: 100%;
+        	}
+        	a {
+        	padding: 10px;
+        	color: black;
+        	margin: 5px;
+        	}
+        	.form-wrapper {
+        	margin:20em;
+        	}
+        	form {
+        	display: grid;
+        	grid-column-gap: 10px;
+        	grid-row-gap: 20px;
+        	grid-template-columns: 300px 150px 150px;
+        	margin:10px;
+			
+
+        	}
+        	
+        	.search {
+        	
+        	background-color: transparent;
+			border: none;
+			margin: 0;
+    		margin-top: 0px;
+			padding-left: 15px;
+			color: rgba(0,0,0,.87);
+			word-wrap: break-word;
+			outline: none;
+			display: flex;
+			flex: 100%;
+			margin-top: -37px;
+			height: 34px;
+			font-size: 16px;
+        	
+        	background: #fff;
+			display: flex;
+			border: 1px solid #dfe1e5;
+			box-shadow: none;
+			border-radius: 24px;
+			height: 44px;
+			margin: 0 auto;
+        	
+        	
+        	}
+        	.btn {
+
+        	}
+        </style>
+        
+    </head>
+    <body>
+    	<div class="page-wrapper">
+    
+    	<div class="navbar">
+    		<a href="/home/shanti/project/search/imagesearch.html"> Image search </a>
+    		<a href="/home/shanti/project/search/advancedsearch.html"> Advanced search </a>
+    	</div>
+    	<div class=form-wrapper>
+        <form action="https://google.com/search">
+            <input class="search" type="text" name="q">
+            <input class = "btn" type="submit" value="Google Search">
+            <input class="btn" type="submit" name="btnI" value="I'm feeling lucky">
+        </form>
+        </div>
+        </div>
+    </body>
+</html>
+
+

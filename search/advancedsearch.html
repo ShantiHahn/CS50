@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <style> 
+        	body {
+        	font-family: arial, sans-serif;
+        	margin: 0px;
+        	}
+        	form {
+        	text-align:left;
+        	width: 100%;
+        	}
+        	.navbar {
+        	height: 30px;
+        	margin: 0px;
+        	text-align: right;
+        	background: #f1f1f1;
+        	width: 100%;
+        	}
+        	.navlink {
+        	padding : 3px;
+        	margin: 2px;
+        	}
+        	
+        	a {
+        	color: black;
+        	margin: 5px;
+        	}
+        	
+        	.page-wrapper {
+        	padding: 10px;
+        	}
+        	.title {
+        	color: #d93025;
+        	font-size: 20px;
+        	margin-bottom:20px;
+        	
+        	}
+        	.form-wrapper {
+			width: 100%;
+			border-top: 1px solid grey;
+			border-bottom: 1px solid grey;
+			padding-top: 20px;
+			padding-bottom:20px;
+        	}
+        	
+        	.one {
+        	display: grid;
+        	margin-top: 20px;
+        	grid-template-columns: 15em auto;
+
+        	}
+        	
+        	.two {
+        	
+        	}
+        	.input {
+        	
+        	}
+        	.btn-wrapper {
+        		text-align:right;
+        		position:right;
+        	}
+        	.btn {
+        	
+        	padding: 5px;
+        	box-shadow: none;
+			background-color: #4d90fe;
+			background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+			color: white;
+			margin-top: 20px;
+        	}
+        	.footbar {
+        	
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="navbar">
+			<a class ="navlink" href="/home/shanti/project/search/index.html"> Search </a>
+    		<a class="navlink" href="/home/shanti/project/search/imagesearch.html">Search images </a>
+    	</div>
+    	
+    	<div class="page-wrapper">
+    	
+    	<div class="title">
+    	
+    		 Advanced Search 
+    	</div>
+    	
+    	<div class="form-wrapper">
+        	<form action="https://google.com/search">
+        		
+        		
+        		<div class="zero">
+        		<h4>Find pages with...</h4>
+        		<div class="one">
+        			
+        			<div class="two">  All theses words: </div>
+        			
+            			<input type="text" name="q">
+            		
+            	</div>
+            	<div class="one">
+            		<div class="two"> This exact word or phrase: </div>
+            		
+            			<input type="text" name="as_epq">
+            		
+            	</div>
+            	
+            	<div class ="one"> 
+            		<div class="two"> Any of this words: </div>
+            		<input type = "text" name = "as_oq">
+           		</div>
+            
+            	<div class ="one"> 
+            		<div class="two">None of this words: </div>
+            		<input type="text" name="as_eq">
+            	</div>
+            		</div>
+            		<div class=btn-wrapper>
+            			<input class="btn" type="submit" value="Advanced Search">
+            		</div>
+        	</form>
+        </div>
+        
+        <div class="footbar">
+        
+        </div>
+        
+        </div>
+    </body>
+</html>

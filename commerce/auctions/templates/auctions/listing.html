@@ -1,0 +1,93 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="container">
+    {{user}}
+    
+    
+    <h3> {{listing.title}} </h3>
+    <div class="row align-item-start">
+    <div class="clearfix">
+        <img src="{{listing.image}}">
+    </div>
+    <div class="col">
+        <p> {{listing.description}} </p>
+    </div>
+    <div class="col"> category : <a href="{% url 'category_search' listing.category %} "> {{listing.category}} </a></div>
+    {% if listing.active == True %}
+        <div class="col"> This listing is active </div>
+        <div class="col">
+        {% if request.user == listing.seller %}
+        <form action="{% url 'listing' listing_id %}" method="post">
+        {% csrf_token %}
+        {{closeform}}
+        <input type="submit" value="Turn off this listing!">
+        </form>
+        {% endif %}
+        </div>
+
+    {% else %}
+        <div> This listing is no longer active <div>
+        {% if request.user == listing.seller %}
+        <form action="{% url 'listing' listing_id %}" method="post">
+        {% csrf_token %}
+        {{closeform}}
+        <input type="submit" value="Activate this listing!">
+        </form>
+        {% endif %}
+        {% if request.user == high_bid.user %}
+            <div> Congratulations {{request.user}}, you have won the auction </div>
+        {% endif %}
+    {% endif %}
+    </div>
+
+    {% if user.is_authenticated and listing.active %}
+        <form action="{% url 'listing' listing_id %}" method="post">
+        {% csrf_token %}
+        {{ watchlist }}
+        <input type="submit" value="Add this to your watchlist!">
+        </form>
+    {% else %}
+    {% endif %}
+
+    {% for bid in bids %}
+    <div> {{bid.bid }} from {{bid.user}} </div>
+    {% endfor %}
+
+
+
+    {% if user.is_authenticated and listing.active %}
+        <form action="{% url 'listing' listing_id %}" method="post">
+            {% csrf_token %}
+            {{ bidding_form }}
+            Bid must be higher than previous bids
+            <input type="submit" value="Let's go !">
+
+            {{succes_message}} {{failure_message}}
+
+        </form>
+    {% endif%}
+
+    {% for comment in comments %}
+
+
+    <div > {{comment}} </div>
+
+    {% endfor %}
+
+
+    {% if user.is_authenticated %}
+        <form action="{% url 'listing' listing_id %}" method="post">
+            {% csrf_token %}
+            {{ comment_form }}
+            <input type="submit" value="Comment this listing!">
+        </form>
+    {% endif %}
+
+
+    
+
+
+
+</div>
+{% endblock %}
